@@ -1,8 +1,12 @@
 #include "cellnetlst.h"
 #include <algorithm>
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
 
 bool CellNetlst::verifyCnt(int pos){
-    if(nets[pos].trans.size()>2) 	// if is connected to more than 2 transistors
+    if(nets[pos].trans.size()>2)    // if is connected to more than 2 transistors
         return true;
     else
         for(vector<int>::iterator tmp=inouts.begin(); tmp!=inouts.end(); tmp++) // or is connected to a IO pin
@@ -18,12 +22,12 @@ bool CellNetlst::visit( int nDifs, TransitorTerminal& transP, TransitorTerminal&
     orderingP.push_back(transP);
     orderingN.push_back(transN);
     
-    //	cout << "(" << nets[trans[transP.link].gate].name << "-"<< nets[trans[transN.link].gate].name << ")";
+    //  cout << "(" << nets[trans[transP.link].gate].name << "-"<< nets[trans[transN.link].gate].name << ")";
     
     if(orderingP.size() + orderingN.size()==trans.size()) return true;
     
     if(!(ok=visit(nDifs))){
-        //		cout << ".";
+        //      cout << ".";
         trans[transP.link].visited=false;
         trans[transN.link].visited=false;
         orderingP.pop_back();
@@ -54,11 +58,11 @@ bool CellNetlst::visit( int nDifs){
         //tenta visita os transistores das 2 redes P e N para ver se acha um com o mesmo gate
         transP_it=nets[netP].trans.begin();
         while(transP_it!=nets[netP].trans.end() && !ok){
-            //			cout << trans[transP_it->link].name << " " << endl;
+            //          cout << trans[transP_it->link].name << " " << endl;
             if(transP_it->type!=GATE && !trans[transP_it->link].visited && trans[transP_it->link].type==PMOS){
                 transN_it=nets[netN].trans.begin();
                 while(transN_it!=nets[netN].trans.end() && !ok){
-                    //					cout << trans[transN_it->link].name << " " << endl;
+                    //                  cout << trans[transN_it->link].name << " " << endl;
                     if(transN_it->type!=GATE && !trans[transN_it->link].visited && trans[transN_it->link].type==NMOS){
                         if(trans[transP_it->link].gate==trans[transN_it->link].gate)
                             ok=visit(nDifs, *transP_it, *transN_it);
@@ -198,7 +202,7 @@ bool CellNetlst::insertInOut(string name){
         while(c<nets.size() && nets[c].name!=name) c++;
         inouts.push_back(c);
         inouts_type.push_back(IOTYPE_INOUT);
-        if(c==nets.size()){		// if doesnt exist, create a new net
+        if(c==nets.size()){     // if doesnt exist, create a new net
             Net tmp;
             tmp.name=name;
             nets.push_back(tmp);
@@ -225,14 +229,14 @@ int CellNetlst::insertNet(string& name, TransTerminalType type, int t){
     tmp2.type=type;
     
     while(c<nets.size() && nets[c].name!=name) c++;
-    if(c==nets.size()){		// if doesnt exist, create a new net and add the new transistor
+    if(c==nets.size()){     // if doesnt exist, create a new net and add the new transistor
         Net tmp;
         tmp.name=name;
         tmp.trans.push_back(tmp2);
         nets.push_back(tmp);
-    }else				// otherwise, add the new transistor to the net
+    }else               // otherwise, add the new transistor to the net
         nets[c].trans.push_back(tmp2);
-    return(c);			// return the label of the net
+    return(c);          // return the label of the net
 }
 
 bool CellNetlst::check(){
@@ -292,7 +296,7 @@ void CellNetlst::insertTrans(string name, string d, string g, string s, TransTyp
     tmp.length=l;
     tmp.width=w;
     tmp.visited=false;
-    tmp.drain=insertNet(d,DRAIN,static_cast<int>(trans.size()));	// Create a bi-directional link between both objects
+    tmp.drain=insertNet(d,DRAIN,static_cast<int>(trans.size()));    // Create a bi-directional link between both objects
     tmp.gate=insertNet(g,GATE,static_cast<int>(trans.size()));
     tmp.source=insertNet(s,SOURCE,static_cast<int>(trans.size()));
     trans.push_back(tmp);
@@ -305,7 +309,7 @@ void CellNetlst::insertInstance(string instName, string subCircuit, vector<strin
     for(int port=0; port<ports.size(); ++port){
         int c=0;
         while(c<nets.size() && nets[c].name!=ports[port]) c++;
-        if(c==nets.size()){		// if doesnt exist
+        if(c==nets.size()){     // if doesnt exist
             Net tmp2;
             tmp2.name=ports[port];
             nets.push_back(tmp2);
@@ -332,14 +336,14 @@ void CellNetlst::print(){
         cout << ") ";
     }
     cout << endl;
-    /*	cout << "Nets: " << endl;
+    /*  cout << "Nets: " << endl;
      for(vector<Net>::iterator tmp=nets.begin(); tmp!=nets.end(); tmp++){
      cout << tmp->name << ":";
      for(list<TransitorTerminal>::iterator tmp2=tmp->trans.begin(); tmp2!=tmp->trans.end(); tmp2++)
      cout << trans[tmp2->link].name << " ";
      cout << endl;
      }
-     */	cout << "-> Transistors: " << endl;
+     */ cout << "-> Transistors: " << endl;
     for(int tmp=0; tmp<trans.size(); tmp++)
         cout << trans[tmp].name << "     " << nets[trans[tmp].drain].name << "     " << nets[trans[tmp].gate].name << "     " << nets[trans[tmp].source].name << "     " <<
         (trans[tmp].type?"NMOS":"PMOS") << "     L=" << trans[tmp].length << "     W=" << trans[tmp].width << endl;
@@ -399,8 +403,8 @@ int CellNetlst::getCost(){
             }
         }
         if(orderingP[pos].link!=-1 && orderingN[pos].link!=-1 && trans[orderingP[pos].link].gate!=trans[orderingN[pos].link].gate) ++mismatchesGate;
-        //		if(leftP!=leftN && !((nets[leftP].name=="VDD" || nets[leftP].name=="VCC") && (nets[leftN].name=="GND" || nets[leftN].name=="0"))) missMatchSourceDrain++;
-        //		if(rightP!=rightN && !((nets[rightP].name=="VDD" || nets[rightP].name=="VCC") && (nets[rightN].name=="GND" || nets[rightN].name=="0"))) missMatchSourceDrain++;
+        //      if(leftP!=leftN && !((nets[leftP].name=="VDD" || nets[leftP].name=="VCC") && (nets[leftN].name=="GND" || nets[leftN].name=="0"))) missMatchSourceDrain++;
+        //      if(rightP!=rightN && !((nets[rightP].name=="VDD" || nets[rightP].name=="VCC") && (nets[rightN].name=="GND" || nets[rightN].name=="0"))) missMatchSourceDrain++;
         
         //analisa horizontalmente o custo
         if(pos){
@@ -528,70 +532,103 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
     ngCost=ngC;
     this->vddNet=vddNet;
     this->gndNet=gndNet;
+
+    orderingP.clear();
+    orderingN.clear();
     
-    unsigned long i;
-    if(newPl){
-        orderingP.clear();
-        orderingN.clear();
-        TransitorTerminal tmp;
-        tmp.type=DRAIN;
+    string line;
+    ifstream myfile ("build/Work/pos.txt");
+    
+    if (myfile.is_open()){
         
-        for(i=0;i<trans.size();++i){
-            tmp.link= static_cast<int>(i);
-            if(trans[i].type==PMOS)
-                orderingP.push_back(tmp);
-            else
-                orderingN.push_back(tmp);
+        // Read the file until get cell name
+        while ( getline(myfile,line) && (line != this->name )) {
+            cout << line << " --> " << this->name << " :: " << (line != this->name) << endl; 
         }
         
-        tmp.type=DRAIN;
-        tmp.link=-1;
-        unsigned long width=max(orderingP.size(),orderingN.size());
-        for(i=orderingP.size();i<width;i++)
-            orderingP.push_back(tmp);
-        for(i=orderingN.size();i<width;i++)
-            orderingN.push_back(tmp);
-    }
-    int best=0;
-    int best_cost=getCost();
-    //	cout << "- Initial Cost (0): " << best_cost << endl;
-    
-    tmpP=orderingP;
-    tmpN=orderingN;
-    
-    for(int at=1; at<=nrattempts ; at++){
-        custo_atual=custo_anterior=getCost();
-        //		cout << "- Running Threshold Accept algorithm (" << at << "): " << endl;
-        //		*this = SimulatedAnnealing<CellNetlst>(*this,saquality,false,true,!ep || at!=1);
-        *this = ThresholdAccept<CellNetlst>(*this,saquality,false,true,true);
-        cout << endl;
-        if(best_cost>=getCost()){
-            best=at;
-            best_cost=getCost();
-            tmpP=orderingP;
-            tmpN=orderingN;
+        // Get the transistors name and position
+        while ( getline(myfile,line) && (line != "end") ){
+            //cout << "###: " << line << endl; 
+            // Vector to get the line items
+            vector<string> splitedLine;
+            // Iterator to line string
+            string::iterator line_it = line.begin();
+            // Start first string in vector
+            string aux = "";
+            while(line_it <= line.end()){
+                //cout << *line_it << "-#-" << '\n';
+                if ((*line_it == ' ') || (*line_it == '\n')){
+                    splitedLine.push_back(aux);
+                    aux = "";
+                    line_it++;
+                }
+                aux += *line_it;
+                line_it++;
+            }
+
+            cout << "size and line::  " << splitedLine.size() << " ; " << splitedLine[0] << " - " << ((splitedLine.size() > 1) && (splitedLine[0] == "GAP")) << '\n';
+            if((splitedLine.size() > 1) && (splitedLine[0] == "GAP")){
+                cout<< "Um boco foi" << endl;
+                TransitorTerminal tmp;
+                tmp.link = -1;
+                tmp.type = GAP;
+                if(splitedLine[1] == 'P'){
+                    orderingP.push_back(tmp);
+                } else {
+                    orderingN.push_back(tmp);
+                }
+            }
+            
+            //Add transistor to ordering vector
+            for (int i = 0; i < trans.size(); ++i){
+                if (trans[i].name == splitedLine[0]){
+                    TransitorTerminal tmp;
+                    tmp.link = i;
+                    if (splitedLine[1] == 'D'){
+                        tmp.type = DRAIN;
+                    } else if (splitedLine[1] == 'S'){
+                        tmp.type = SOURCE;
+                    } else {
+                        tmp.type = GAP;
+                    }
+
+                    if(trans[i].type == PMOS){
+                        orderingP.push_back(tmp);
+                    } else {
+                        orderingN.push_back(tmp);
+                    }
+                }
+            }
+
         }
+
     }
-    
-    orderingP=tmpP;
-    orderingN=tmpN;
+    else cout << "Unable to open file";
+    this->printPlacement();
+
+    myfile.close(); 
+    exit(1);
     return true;
 }
 void CellNetlst::printPlacement(){
-    getCost();
-    cout << "-> Final cost: Width=" << posPN << "; Gate Mismatches="<<  mismatchesGate << "; WL="<< wRouting << "; Rt. Density=" << maxCong << "; Nr. Gaps=" << wGaps << endl;
-    //	cout << "-> Transistor Ordering (" << best << "): " << endl;
+    //getCost();
+    //cout << "-> Final cost: Width=" << posPN << "; Gate Mismatches="<<  mismatchesGate << "; WL="<< wRouting << "; Rt. Density=" << maxCong << "; Nr. Gaps=" << wGaps << endl;
+    //  cout << "-> Transistor Ordering (" << best << "): " << endl;
     cout << "   PMOS: ";
     for(int i=0;i<orderingP.size();i++){
         if(orderingP[i].link==-1) cout << "GAP";
-        else cout << trans[orderingP[i].link].name;
+        else {
+            cout << trans[orderingP[i].link].name << " - " << orderingP[i].type;
+        }
         cout << "-";
     }
     cout << endl;
     cout << "   NMOS: ";
     for(int i=0;i<orderingN.size();i++){
         if(orderingN[i].link==-1) cout << "GAP";
-        else cout << trans[orderingN[i].link].name;
+        else {
+            cout << trans[orderingN[i].link].name << " - " << orderingN[i].type;
+        }
         cout << "-";
     }
     cout << endl;
