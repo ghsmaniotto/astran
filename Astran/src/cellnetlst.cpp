@@ -542,9 +542,7 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
     if (myfile.is_open()){
         
         // Read the file until get cell name
-        // while ( getline(myfile,line) && (line != this->name )) {
-        //     cout << line << " --> " << this->name << " :: " << (line != this->name) << endl; 
-        // }
+        while ( getline(myfile,line) && (line != this->name )){}
         
         // Get the transistors name and position
         while ( getline(myfile,line) && (line != "end") ){
@@ -552,9 +550,9 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
             vector<string> splitedLine;
             // Iterator to line string
             string::iterator line_it = line.begin();
-
+	    // Start empty auxiliar string
             string aux = "";
-            
+            // Read transistors to place it
             while(line_it <= line.end()){
                 if ((*line_it == ' ') || (line_it == line.end())){
                     // Remove empty spaces
@@ -590,7 +588,7 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
                     } else if (splitedLine[1] == '1'){
                         tmp.type = SOURCE;
                     }
-                    
+
                     if(trans[i].type == PMOS){
                         orderingP.push_back(tmp);
                     } else {
