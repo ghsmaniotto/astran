@@ -1,0 +1,47 @@
+gate_f0973_v1
+Mxpmos1 0 1
+Mxpmos5 0 1
+Mxpmos7 0 1
+Mxpmos2 0 1
+Mxpmos3 0 1
+Mxpmos4 0 1
+Mxpmos0 0 1
+Mxpmos6 0 1
+Mxnmos0 0 1
+Mxnmos1 0 1
+Mxnmos2 0 1
+Mxnmos5 0 1
+Mxnmos4 0 1
+Mxnmos3 0 1
+Mxnmos6 0 1
+Mxnmos7 0 1
+Mxnmos8 0 1
+end
+NAND2X2
+MM65 1 0
+GAP 1
+MM66 0 1
+MM64 0 1
+GAP 0
+MM67 1 0
+end
+gate_f0973_v2
+Mxpmos7 0 1
+Mxpmos3 0 1
+Mxpmos6 0 1
+Mxpmos4 0 1
+Mxpmos2 0 1
+Mxpmos5 0 1
+Mxpmos8 0 1
+Mxpmos0 0 1
+Mxpmos1 0 1
+Mxnmos3 0 1
+Mxnmos4 0 1
+Mxnmos5 0 1
+Mxnmos2 0 1
+Mxnmos1 0 1
+Mxnmos0 0 1
+Mxnmos6 0 1
+Mxnmos7 0 1
+Mxnmos8 0 1
+end
