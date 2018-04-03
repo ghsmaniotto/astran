@@ -556,11 +556,17 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
             // Start first string in vector
             string aux = "";
             while(line_it <= line.end()){
+                cout << *line_it << " -#- ";
+                line_it++;
+            }
+            line_it = line.begin();
+            while(line_it <= line.end()){
                 //cout << *line_it << "-#-" << '\n';
-                if ((*line_it == ' ') || (*line_it == '\n')){
+                if ((*line_it == ' ') || (line_it == line.end())){
+                    // Remove empty spaces
+                    aux.erase(remove(aux.begin(), aux.end(), ' '), aux.end());
                     splitedLine.push_back(aux);
                     aux = "";
-                    line_it++;
                 }
                 aux += *line_it;
                 line_it++;
@@ -572,7 +578,8 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
                 TransitorTerminal tmp;
                 tmp.link = -1;
                 tmp.type = GAP;
-                if(splitedLine[1] == 'P'){
+                cout << "+++  " << (splitedLine[1] == '1') << endl; 
+                if(splitedLine[1] == '1'){
                     orderingP.push_back(tmp);
                 } else {
                     orderingN.push_back(tmp);
@@ -584,12 +591,10 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
                 if (trans[i].name == splitedLine[0]){
                     TransitorTerminal tmp;
                     tmp.link = i;
-                    if (splitedLine[1] == 'D'){
+                    if (splitedLine[1] == '0'){
                         tmp.type = DRAIN;
-                    } else if (splitedLine[1] == 'S'){
+                    } else if (splitedLine[1] == '1'){
                         tmp.type = SOURCE;
-                    } else {
-                        tmp.type = GAP;
                     }
 
                     if(trans[i].type == PMOS){
@@ -616,18 +621,18 @@ void CellNetlst::printPlacement(){
     //  cout << "-> Transistor Ordering (" << best << "): " << endl;
     cout << "   PMOS: ";
     for(int i=0;i<orderingP.size();i++){
-        if(orderingP[i].link==-1) cout << "GAP";
+        if(orderingP[i].link==-1) cout << " GAP ";
         else {
-            cout << trans[orderingP[i].link].name << " - " << orderingP[i].type;
+            cout << trans[orderingP[i].link].name << " | " << orderingP[i].type << " - " ;
         }
         cout << "-";
     }
     cout << endl;
     cout << "   NMOS: ";
     for(int i=0;i<orderingN.size();i++){
-        if(orderingN[i].link==-1) cout << "GAP";
+        if(orderingN[i].link==-1) cout << " GAP ";
         else {
-            cout << trans[orderingN[i].link].name << " - " << orderingN[i].type;
+            cout << trans[orderingN[i].link].name << " | " << orderingN[i].type << " - " ;
         }
         cout << "-";
     }
@@ -975,5 +980,3 @@ bool CellNetlst::seriesFolding(int numSequence, int numTrans, int numLegs, int b
     }
     return true;
 }
-
-
