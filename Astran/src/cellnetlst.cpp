@@ -542,29 +542,24 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
     if (myfile.is_open()){
         
         // Read the file until get cell name
-        while ( getline(myfile,line) && (line != this->name )) {
-            cout << line << " --> " << this->name << " :: " << (line != this->name) << endl; 
-        }
+        // while ( getline(myfile,line) && (line != this->name )) {
+        //     cout << line << " --> " << this->name << " :: " << (line != this->name) << endl; 
+        // }
         
         // Get the transistors name and position
         while ( getline(myfile,line) && (line != "end") ){
-            //cout << "###: " << line << endl; 
             // Vector to get the line items
             vector<string> splitedLine;
             // Iterator to line string
             string::iterator line_it = line.begin();
-            // Start first string in vector
+
             string aux = "";
+            
             while(line_it <= line.end()){
-                cout << *line_it << " -#- ";
-                line_it++;
-            }
-            line_it = line.begin();
-            while(line_it <= line.end()){
-                //cout << *line_it << "-#-" << '\n';
                 if ((*line_it == ' ') || (line_it == line.end())){
                     // Remove empty spaces
                     aux.erase(remove(aux.begin(), aux.end(), ' '), aux.end());
+                    // Add string to splited line vector
                     splitedLine.push_back(aux);
                     aux = "";
                 }
@@ -572,13 +567,12 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
                 line_it++;
             }
 
-            cout << "size and line::  " << splitedLine.size() << " ; " << splitedLine[0] << " - " << ((splitedLine.size() > 1) && (splitedLine[0] == "GAP")) << '\n';
             if((splitedLine.size() > 1) && (splitedLine[0] == "GAP")){
-                cout<< "Um boco foi" << endl;
+                // Create temporary transistor
                 TransitorTerminal tmp;
                 tmp.link = -1;
                 tmp.type = GAP;
-                cout << "+++  " << (splitedLine[1] == '1') << endl; 
+                // Add GAP to correctly transistor type
                 if(splitedLine[1] == '1'){
                     orderingP.push_back(tmp);
                 } else {
@@ -596,7 +590,7 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
                     } else if (splitedLine[1] == '1'){
                         tmp.type = SOURCE;
                     }
-
+                    
                     if(trans[i].type == PMOS){
                         orderingP.push_back(tmp);
                     } else {

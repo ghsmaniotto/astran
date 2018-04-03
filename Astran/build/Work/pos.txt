@@ -18,12 +18,12 @@ Mxnmos7 0 1
 Mxnmos8 0 1
 end
 NAND2X2
-MM65 1 0
-GAP 1
-MM66 0 1
-MM64 0 1
-GAP 0
-MM67 1 0
+MM65 1 0   - DRAIN - SOURCE
+GAP 1	   - PMOS
+MM66 0 1   - SOURCE - DRAIN
+MM64 0 1   - SOURCE - DRAIN
+GAP 0	   - NMOS
+MM67 1 0   - DRAIN - SOURCE
 end
 gate_f0973_v2
 Mxpmos7 0 1
