@@ -1,47 +1,658 @@
-gate_f0973_v1
-Mxpmos1 0 1
-Mxpmos5 0 1
-Mxpmos7 0 1
+GATE_F0001
+Mxpmos0 1 0
 Mxpmos2 0 1
-Mxpmos3 0 1
+Mxpmos3 1 0
 Mxpmos4 0 1
-Mxpmos0 0 1
-Mxpmos6 0 1
+Mxpmos1 1 0
 Mxnmos0 0 1
+Mxnmos3 1 0
+Mxnmos4 0 1
+Mxnmos1 1 0
+Mxnmos2 1 0
+end
+GATE_F0002
+Mxpmos1 0 1
+Mxpmos4 1 0
+Mxpmos3 0 1
+Mxpmos2 1 0
+Mxpmos0 0 1
+Mxnmos2 0 1
+Mxnmos0 0 1
+Mxnmos3 1 0
+Mxnmos4 0 1
+Mxnmos1 1 0
+end
+GATE_F0003
+Mxpmos2 1 0
+Mxpmos5 0 1
+Mxpmos1 1 0
+Mxpmos3 0 1
+Mxpmos4 1 0
+Mxpmos0 1 0
+Mxnmos3 1 0
+Mxnmos5 0 1
 Mxnmos1 0 1
 Mxnmos2 0 1
-Mxnmos5 0 1
-Mxnmos4 0 1
-Mxnmos3 0 1
-Mxnmos6 0 1
-Mxnmos7 0 1
-Mxnmos8 0 1
+Mxnmos4 1 0
+Mxnmos0 1 0
 end
-NAND2X2
-MM65 1 0   
-GAP 1
-MM66 0 1
-MM64 0 1
-GAP 0
-MM67 1 0
-end
-gate_f0973_v2
-Mxpmos7 0 1
+GATE_F0004
+Mxpmos1 1 0
 Mxpmos3 0 1
-Mxpmos6 0 1
-Mxpmos4 0 1
 Mxpmos2 0 1
-Mxpmos5 0 1
-Mxpmos8 0 1
+Mxpmos5 1 0
+Mxpmos4 0 1
 Mxpmos0 0 1
-Mxpmos1 0 1
+Mxnmos1 1 0
 Mxnmos3 0 1
+Mxnmos2 0 1
+Mxnmos5 1 0
 Mxnmos4 0 1
+Mxnmos0 1 0
+end
+GATE_F0005
+Mxpmos2 0 1
+Mxpmos1 1 0
+Mxpmos0 0 1
+Mxpmos5 1 0
+Mxpmos4 0 1
+Mxpmos3 1 0
+Mxnmos3 0 1
+Mxnmos1 0 1
+Mxnmos0 0 1
+Mxnmos4 1 0
 Mxnmos5 0 1
+Mxnmos2 1 0
+end
+GATE_F0006
+Mxpmos1 0 1
+Mxpmos0 1 0
+Mxpmos3 0 1
+Mxpmos4 1 0
+Mxpmos5 0 1
+Mxpmos2 0 1
+Mxnmos1 0 1
+Mxnmos0 0 1
+Mxnmos4 1 0
+Mxnmos5 0 1
+Mxnmos2 1 0
+Mxnmos3 1 0
+end
+GATE_F0007
+Mxpmos2 1 0
+Mxpmos1 0 1
+Mxpmos3 1 0
+Mxpmos5 0 1
+Mxpmos4 1 0
+Mxpmos0 0 1
+Mxnmos2 0 1
+Mxnmos1 0 1
+Mxnmos5 0 1
+Mxnmos4 1 0
+Mxnmos3 0 1
+Mxnmos0 1 0
+end
+GATE_F0008
+Mxpmos2 0 1
+Mxpmos1 0 1
+Mxpmos0 0 1
+Mxpmos3 1 0
+Mxpmos4 1 0
+Mxpmos5 0 1
+Mxnmos3 0 1
+Mxnmos1 0 1
+Mxnmos0 1 0
+Mxnmos2 0 1
+Mxnmos5 1 0
+Mxnmos4 0 1
+end
+GATE_F0009
+Mxpmos1 1 0
+Mxpmos2 1 0
+Mxpmos4 1 0
+Mxpmos5 0 1
+Mxpmos0 1 0
+Mxpmos3 0 1
+Mxnmos1 0 1
+Mxnmos4 1 0
+Mxnmos3 0 1
+Mxnmos5 1 0
+Mxnmos0 0 1
+Mxnmos2 1 0
+end
+GATE_F0010
+Mxpmos5 0 1
+Mxpmos0 1 0
+Mxpmos4 0 1
+Mxpmos2 1 0
+Mxpmos3 0 1
+Mxpmos1 0 1
+Mxnmos5 0 1
+Mxnmos0 1 0
+Mxnmos1 0 1
+Mxnmos4 1 0
+Mxnmos3 1 0
+Mxnmos2 0 1
+end
+GATE_F0011
+Mxpmos2 0 1
+Mxpmos1 0 1
+Mxpmos0 0 1
+Mxpmos3 1 0
+Mxpmos4 1 0
+Mxpmos5 0 1
+Mxnmos3 0 1
+Mxnmos1 0 1
+Mxnmos0 1 0
+Mxnmos2 0 1
+Mxnmos5 1 0
+Mxnmos4 0 1
+end
+GATE_F0012
+Mxpmos2 1 0
+Mxpmos1 0 1
+Mxpmos3 1 0
+Mxpmos5 0 1
+Mxpmos4 1 0
+Mxpmos0 0 1
 Mxnmos2 0 1
 Mxnmos1 0 1
 Mxnmos0 0 1
+Mxnmos3 1 0
+Mxnmos4 0 1
+Mxnmos5 1 0
+end
+GATE_F0013
+Mxpmos4 1 0
+Mxpmos5 0 1
+Mxpmos1 1 0
+Mxpmos2 1 0
+Mxpmos3 1 0
+Mxpmos0 0 1
+Mxnmos3 1 0
+Mxnmos2 0 1
+Mxnmos0 1 0
+Mxnmos1 1 0
+Mxnmos4 0 1
+Mxnmos5 0 1
+end
+GATE_F0014
+Mxpmos3 0 1
+Mxpmos2 1 0
+Mxpmos4 0 1
+Mxpmos5 1 0
+Mxpmos6 0 1
+Mxpmos1 0 1
+Mxpmos0 1 0
+Mxnmos4 0 1
+Mxnmos3 0 1
+Mxnmos5 1 0
 Mxnmos6 0 1
-Mxnmos7 0 1
-Mxnmos8 0 1
+Mxnmos2 1 0
+Mxnmos1 0 1
+Mxnmos0 0 1
+end
+GATE_F0015
+Mxpmos0 0 1
+Mxpmos1 0 1
+Mxpmos6 0 1
+Mxpmos3 1 0
+Mxpmos2 1 0
+Mxpmos4 0 1
+Mxpmos5 1 0
+Mxnmos1 0 1
+Mxnmos0 1 0
+Mxnmos2 0 1
+Mxnmos4 1 0
+Mxnmos3 0 1
+Mxnmos5 1 0
+Mxnmos6 0 1
+end
+GATE_F0016
+Mxpmos6 1 0
+Mxpmos5 0 1
+Mxpmos3 0 1
+Mxpmos2 1 0
+Mxpmos4 0 1
+Mxpmos1 1 0
+Mxpmos0 0 1
+Mxnmos2 1 0
+Mxnmos6 1 0
+Mxnmos4 0 1
+Mxnmos3 0 1
+Mxnmos5 1 0
+Mxnmos1 1 0
+Mxnmos0 0 1
+end
+GATE_F0017
+Mxpmos0 0 1
+Mxpmos1 1 0
+Mxpmos2 0 1
+Mxpmos3 0 1
+Mxpmos5 1 0
+Mxpmos4 0 1
+Mxpmos6 1 0
+Mxnmos1 1 0
+Mxnmos0 1 0
+Mxnmos2 1 0
+Mxnmos4 0 1
+Mxnmos3 0 1
+Mxnmos6 1 0
+Mxnmos5 0 1
+end
+GATE_F0018
+Mxpmos3 1 0
+Mxpmos5 1 0
+Mxpmos6 0 1
+Mxpmos2 1 0
+Mxpmos1 1 0
+Mxpmos0 1 0
+Mxpmos4 0 1
+Mxnmos4 1 0
+Mxnmos6 0 1
+Mxnmos3 1 0
+Mxnmos2 0 1
+Mxnmos0 1 0
+Mxnmos1 0 1
+Mxnmos5 1 0
+end
+GATE_F0019
+Mxpmos1 1 0
+Mxpmos0 0 1
+Mxpmos5 1 0
+Mxpmos4 1 0
+Mxpmos6 1 0
+Mxpmos3 0 1
+Mxpmos2 0 1
+Mxnmos1 0 1
+Mxnmos0 0 1
+Mxnmos5 1 0
+Mxnmos4 0 1
+Mxnmos3 1 0
+Mxnmos2 0 1
+Mxnmos6 1 0
+end
+GATE_F0020
+Mxpmos6 0 1
+Mxpmos5 0 1
+Mxpmos1 1 0
+Mxpmos2 0 1
+Mxpmos4 1 0
+Mxpmos3 1 0
+Mxpmos0 1 0
+Mxnmos1 0 1
+Mxnmos0 0 1
+Mxnmos4 1 0
+Mxnmos5 1 0
+Mxnmos3 0 1
+Mxnmos2 0 1
+Mxnmos6 0 1
+end
+GATE_F0021
+Mxpmos2 1 0
+Mxpmos5 1 0
+Mxpmos6 0 1
+Mxpmos4 0 1
+Mxpmos3 1 0
+Mxpmos0 0 1
+Mxpmos1 1 0
+Mxnmos4 1 0
+Mxnmos6 0 1
+Mxnmos0 0 1
+Mxnmos5 0 1
+Mxnmos3 1 0
+Mxnmos2 1 0
+Mxnmos1 1 0
+end
+GATE_F0022
+Mxpmos1 0 1
+Mxpmos3 1 0
+Mxpmos4 1 0
+Mxpmos6 0 1
+Mxpmos2 0 1
+Mxpmos5 1 0
+Mxpmos0 0 1
+Mxnmos0 0 1
+Mxnmos1 0 1
+Mxnmos2 1 0
+Mxnmos5 1 0
+Mxnmos4 0 1
+Mxnmos3 1 0
+Mxnmos6 0 1
+end
+GATE_F0023
+Mxpmos3 0 1
+Mxpmos2 1 0
+Mxpmos4 0 1
+Mxpmos5 1 0
+Mxpmos6 0 1
+Mxpmos0 1 0
+Mxpmos1 0 1
+Mxnmos4 0 1
+Mxnmos2 1 0
+Mxnmos3 0 1
+Mxnmos6 1 0
+Mxnmos5 0 1
+Mxnmos0 1 0
+Mxnmos1 1 0
+end
+GATE_F0024
+Mxpmos5 1 0
+Mxpmos3 1 0
+Mxpmos4 0 1
+Mxpmos0 1 0
+Mxpmos1 1 0
+Mxpmos2 1 0
+Mxpmos6 1 0
+Mxnmos6 0 1
+Mxnmos3 1 0
+Mxnmos4 1 0
+Mxnmos1 0 1
+Mxnmos0 1 0
+Mxnmos2 0 1
+Mxnmos5 1 0
+end
+GATE_F0025
+Mxpmos2 0 1
+Mxpmos6 1 0
+Mxpmos5 0 1
+Mxpmos4 1 0
+Mxpmos0 0 1
+Mxpmos1 0 1
+Mxpmos3 1 0
+Mxnmos0 0 1
+Mxnmos5 1 0
+Mxnmos6 0 1
+Mxnmos3 1 0
+Mxnmos1 0 1
+Mxnmos2 1 0
+Mxnmos4 1 0
+end
+GATE_F0026
+Mxpmos3 0 1
+Mxpmos2 0 1
+Mxpmos1 1 0
+Mxpmos6 1 0
+Mxpmos5 0 1
+Mxpmos4 0 1
+Mxpmos0 1 0
+Mxnmos4 0 1
+Mxnmos1 0 1
+Mxnmos0 0 1
+Mxnmos5 1 0
+Mxnmos6 0 1
+Mxnmos3 1 0
+Mxnmos2 0 1
+end
+GATE_F0027
+Mxpmos6 1 0
+Mxpmos5 0 1
+Mxpmos4 1 0
+Mxpmos0 0 1
+Mxpmos1 1 0
+Mxpmos2 0 1
+Mxpmos3 0 1
+Mxnmos3 0 1
+Mxnmos6 1 0
+Mxnmos5 0 1
+Mxnmos0 1 0
+Mxnmos1 1 0
+Mxnmos2 1 0
+Mxnmos4 1 0
+end
+GATE_F0028
+Mxpmos5 1 0
+Mxpmos6 0 1
+Mxpmos1 1 0
+Mxpmos2 1 0
+Mxpmos3 1 0
+Mxpmos4 1 0
+Mxpmos0 0 1
+Mxnmos6 0 1
+Mxnmos3 1 0
+Mxnmos2 1 0
+Mxnmos1 0 1
+Mxnmos4 1 0
+Mxnmos5 0 1
+Mxnmos0 1 0
+end
+GATE_F0029
+Mxpmos3 1 0
+Mxpmos6 1 0
+Mxpmos5 0 1
+Mxpmos4 1 0
+Mxpmos2 0 1
+Mxpmos1 1 0
+Mxpmos0 1 0
+Mxnmos4 0 1
+Mxnmos3 0 1
+Mxnmos6 1 0
+Mxnmos5 0 1
+Mxnmos0 1 0
+Mxnmos2 1 0
+Mxnmos1 0 1
+end
+GATE_F0030
+Mxpmos2 0 1
+Mxpmos1 1 0
+Mxpmos4 1 0
+Mxpmos5 1 0
+Mxpmos0 0 1
+Mxpmos3 1 0
+Mxpmos6 0 1
+Mxnmos2 0 1
+Mxnmos1 0 1
+Mxnmos3 1 0
+Mxnmos5 0 1
+Mxnmos0 1 0
+Mxnmos4 0 1
+Mxnmos6 1 0
+end
+GATE_F0041
+Mxpmos5 0 1
+Mxpmos3 0 1
+Mxpmos2 0 1
+Mxpmos6 1 0
+Mxpmos1 0 1
+Mxpmos0 1 0
+Mxpmos4 0 1
+Mxnmos6 1 0
+Mxnmos5 0 1
+Mxnmos2 1 0
+Mxnmos1 0 1
+Mxnmos0 0 1
+Mxnmos3 1 0
+Mxnmos4 0 1
+end
+GATE_F0042
+Mxpmos6 1 0
+Mxpmos5 0 1
+Mxpmos2 1 0
+Mxpmos3 1 0
+Mxpmos4 1 0
+Mxpmos0 1 0
+Mxpmos1 1 0
+Mxnmos5 1 0
+Mxnmos6 0 1
+Mxnmos4 0 1
+Mxnmos1 0 1
+Mxnmos3 1 0
+Mxnmos0 0 1
+Mxnmos2 1 0
+end
+GATE_F0043
+Mxpmos5 1 0
+Mxpmos3 1 0
+Mxpmos4 0 1
+Mxpmos2 0 1
+Mxpmos1 1 0
+Mxpmos0 0 1
+Mxpmos6 1 0
+Mxnmos2 0 1
+Mxnmos5 1 0
+Mxnmos4 1 0
+Mxnmos3 0 1
+Mxnmos1 0 1
+Mxnmos0 0 1
+Mxnmos6 1 0
+end
+GATE_F0044
+Mxpmos3 0 1
+Mxpmos1 1 0
+Mxpmos0 1 0
+Mxpmos4 0 1
+Mxpmos5 1 0
+Mxpmos6 0 1
+Mxpmos2 1 0
+Mxnmos4 0 1
+Mxnmos2 0 1
+Mxnmos1 1 0
+Mxnmos3 0 1
+Mxnmos6 1 0
+Mxnmos5 0 1
+Mxnmos0 1 0
+end
+GATE_F0045
+Mxpmos6 0 1
+Mxpmos2 1 0
+Mxpmos4 1 0
+Mxpmos3 0 1
+Mxpmos5 0 1
+Mxpmos0 1 0
+Mxpmos1 1 0
+Mxnmos3 1 0
+Mxnmos6 0 1
+Mxnmos4 0 1
+Mxnmos5 0 1
+Mxnmos2 1 0
+Mxnmos0 0 1
+Mxnmos1 1 0
+end
+GATE_F0046
+Mxpmos2 1 0
+Mxpmos5 1 0
+Mxpmos4 1 0
+Mxpmos3 0 1
+Mxpmos1 0 1
+Mxpmos0 0 1
+Mxpmos6 1 0
+Mxnmos5 1 0
+Mxnmos4 0 1
+Mxnmos6 1 0
+Mxnmos3 1 0
+Mxnmos1 0 1
+Mxnmos0 1 0
+Mxnmos2 0 1
+end
+GATE_F0047
+Mxpmos1 0 1
+Mxpmos0 1 0
+Mxpmos5 0 1
+Mxpmos2 1 0
+Mxpmos6 1 0
+Mxpmos3 0 1
+Mxpmos4 1 0
+Mxnmos1 0 1
+Mxnmos0 0 1
+Mxnmos6 1 0
+Mxnmos3 0 1
+Mxnmos2 0 1
+Mxnmos5 1 0
+Mxnmos4 1 0
+end
+GATE_F0048
+Mxpmos6 0 1
+Mxpmos5 1 0
+Mxpmos0 1 0
+Mxpmos1 1 0
+Mxpmos2 0 1
+Mxpmos3 1 0
+Mxpmos4 1 0
+Mxnmos4 0 1
+Mxnmos6 1 0
+Mxnmos0 0 1
+Mxnmos5 1 0
+Mxnmos1 1 0
+Mxnmos2 1 0
+Mxnmos3 0 1
+end
+GATE_F0049
+Mxpmos6 0 1
+Mxpmos1 1 0
+Mxpmos2 1 0
+Mxpmos4 1 0
+Mxpmos3 0 1
+Mxpmos5 1 0
+Mxpmos0 0 1
+Mxnmos4 1 0
+Mxnmos1 0 1
+Mxnmos5 1 0
+Mxnmos2 0 1
+Mxnmos3 0 1
+Mxnmos6 1 0
+Mxnmos0 0 1
+end
+GATE_F0050
+Mxpmos1 0 1
+Mxpmos0 0 1
+Mxpmos4 0 1
+Mxpmos5 1 0
+Mxpmos6 0 1
+Mxpmos2 1 0
+Mxpmos3 1 0
+Mxnmos5 1 0
+Mxnmos0 0 1
+Mxnmos2 1 0
+Mxnmos3 0 1
+Mxnmos6 1 0
+Mxnmos1 1 0
+Mxnmos4 0 1
+end
+GATE_F0051
+Mxpmos1 0 1
+Mxpmos0 1 0
+Mxpmos5 0 1
+Mxpmos2 1 0
+Mxpmos6 1 0
+Mxpmos3 0 1
+Mxpmos4 1 0
+Mxnmos1 0 1
+Mxnmos0 0 1
+Mxnmos6 1 0
+Mxnmos3 0 1
+Mxnmos2 0 1
+Mxnmos5 1 0
+Mxnmos4 1 0
+end
+GATE_F0052
+Mxpmos6 0 1
+Mxpmos1 1 0
+Mxpmos2 1 0
+Mxpmos4 1 0
+Mxpmos3 0 1
+Mxpmos5 1 0
+Mxpmos0 0 1
+Mxnmos4 1 0
+Mxnmos1 0 1
+Mxnmos5 1 0
+Mxnmos2 0 1
+Mxnmos3 0 1
+Mxnmos6 1 0
+Mxnmos0 0 1
+end
+GATE_F0053
+Mxpmos1 0 1
+Mxpmos0 0 1
+Mxpmos4 0 1
+Mxpmos5 1 0
+Mxpmos6 0 1
+Mxpmos2 1 0
+Mxpmos3 1 0
+Mxnmos5 1 0
+Mxnmos0 0 1
+Mxnmos2 1 0
+Mxnmos3 0 1
+Mxnmos6 1 0
+Mxnmos1 1 0
+Mxnmos4 0 1
 end

@@ -1,0 +1,9 @@
+set lpsolve "/opt/gurobi702/linux64/bin/gurobi_cl"
+set vddnet VDD
+set gndnet GND
+load technology "/home/astran/Astran/build/Work/tech_0065_2.rul"
+load netlist "/home/astran/Astran/build/Work/in_execution/1/spices/gate_f0003.sp"
+cellgen select "GATE_F0003"
+cellgen autoflow
+export layout "GATE_F0003" "GATE_F0003.cif"
+exit

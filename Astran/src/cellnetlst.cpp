@@ -604,10 +604,8 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
 
                     if(trans[i].type == PMOS){
                         orderingP.push_back(tmp);
-                        cout << "In list" << trans[i].name << endl;
                     } else {
                         orderingN.push_back(tmp);
-                        cout << "In list" << trans[i].name << endl;
                     }
                 }
             }

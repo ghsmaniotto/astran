@@ -1,9 +1,9 @@
 set lpsolve "/opt/gurobi702/linux64/bin/gurobi_cl"
-set vddnet
-set gndnet
+set vddnet "VCC"
+set gndnet "GND"
 load technology "/home/astran/Astran/build/Work/tech_0065.rul"
-load netlist "/home/astran/Astran/build/Work/nand2x2.sp"
-cellgen select "NAND2x2"
+load netlist "/home/astran/Astran/build/Work/NAND2X2.sp"
+cellgen select "NAND2X2"
 cellgen autoflow
-export layout "NAND2x2.cif"
+export layout "NAND2X2" "NAND2x2.cif"
 exit
