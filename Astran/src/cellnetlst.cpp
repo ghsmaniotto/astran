@@ -537,12 +537,22 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
     orderingN.clear();
     
     string line;
-    ifstream myfile ("build/Work/pos.txt");
+    ifstream myfile ("/home/astran/Astran/build/Work/pos.txt");
     
     if (myfile.is_open()){
         
+        // Read the first line
+        getline(myfile,line);
+        line.erase(remove(line.begin(), line.end(), ' '), line.end());
+
         // Read the file until get cell name
-        while ( getline(myfile,line) && (line != this->name )){}
+        while ( (line != this->name ) && getline(myfile,line) ){
+            cout << "--" << this->name << "--" << line << "--" << endl;
+            line.erase(remove(line.begin(), line.end(), ' '), line.end());
+            if (line == this->name){
+                cout << "acerto" << endl;
+            }
+        }
         
         // Get the transistors name and position
         while ( getline(myfile,line) && (line != "end") ){
@@ -550,13 +560,15 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
             vector<string> splitedLine;
             // Iterator to line string
             string::iterator line_it = line.begin();
-	    // Start empty auxiliar string
+	        // Start empty auxiliar string
             string aux = "";
             // Read transistors to place it
             while(line_it <= line.end()){
                 if ((*line_it == ' ') || (line_it == line.end())){
                     // Remove empty spaces
                     aux.erase(remove(aux.begin(), aux.end(), ' '), aux.end());
+                    for(int i = 0; i < aux.size(); i++)
+                        aux[i] = toupper(aux[i]);
                     // Add string to splited line vector
                     splitedLine.push_back(aux);
                     aux = "";
@@ -581,6 +593,7 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
             //Add transistor to ordering vector
             for (int i = 0; i < trans.size(); ++i){
                 if (trans[i].name == splitedLine[0]){
+
                     TransitorTerminal tmp;
                     tmp.link = i;
                     if (splitedLine[1] == '0'){
@@ -591,8 +604,10 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
 
                     if(trans[i].type == PMOS){
                         orderingP.push_back(tmp);
+                        cout << "In list" << trans[i].name << endl;
                     } else {
                         orderingN.push_back(tmp);
+                        cout << "In list" << trans[i].name << endl;
                     }
                 }
             }
@@ -604,7 +619,6 @@ bool CellNetlst::transPlacement(bool newPl, int saquality, int nrattempts, int w
     this->printPlacement();
 
     myfile.close(); 
-    exit(1);
     return true;
 }
 void CellNetlst::printPlacement(){
